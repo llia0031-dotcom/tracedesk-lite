@@ -45,7 +45,7 @@ No request failed in any run. The plain prompt is unchanged between the runs, ye
 
 ## Hand-scored review (11 November 2026)
 
-The automatic checks cannot see a wrong fact that is backed by a real quote, so all 40 answers from the stored run (dev and check sets, both prompts) were also scored by a person against the four documents.
+The automatic checks cannot see a wrong fact that is backed by a real quote, so the answers to all 40 questions from the stored run (dev and check sets, both prompts: 80 answers) were also scored by a person against the four documents.
 
 | Scored by hand | Plain | TraceDesk |
 | --- | --- | --- |
