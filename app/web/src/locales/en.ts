@@ -77,7 +77,7 @@ const en = {
   loading: { title: 'Checking the official documents…', hint: 'This usually takes 2–6 seconds.', titleLocal: 'Looking through the official documents…', hintLocal: 'The local engine answers in under a second.' },
   status: {
     answered: { title: 'Found in the official documents', desc: 'Every sentence below is backed by a quote you can check.' },
-    insufficient_evidence: { title: 'The documents don’t cover this', desc: 'We won’t guess. Below: who can help, and an email ready to send.' },
+    insufficient_evidence: { title: 'The documents don’t cover this', desc: 'Below: who can help, and an email ready to send.' },
     needs_clarification: { title: 'One quick question first', desc: 'Your question could mean more than one thing.' },
     withheld: { title: 'Answer held back', desc: 'The AI’s answer could not be matched to the documents, so it is not shown. Try asking in a different way.' },
   },
@@ -102,7 +102,6 @@ const en = {
     details: 'More detail',
     missing: 'What the documents don’t say',
     evidence: 'Where this comes from',
-    evidenceNote: 'Quotes are shown exactly as written in the official documents (English, not translated), so you can check them yourself.',
     verified: 'Quotes verified',
     notFound: 'Not found in the source',
     notFoundText: 'The AI quoted “{{quote}}”, which does not appear in this document.',
@@ -207,7 +206,6 @@ const en = {
       chart: 'Share of the {{n}} check questions that passed each automatic check (latest run, %)',
       plain: 'Plain prompt',
       ours: 'TraceDesk prompt',
-      note: 'Automatic checks, not an accuracy score: whether a fact is right still needs a human reviewer.',
       metrics: {
         status_correct: 'Right kind of reply',
         quotes_verified: 'Quotes verified',
@@ -220,7 +218,7 @@ const en = {
       latency: 'Median response time',
       runsTitle: 'All checks passed, run by run',
       runsCols: { prompt: 'TraceDesk prompt version', plain: 'Plain prompt', ours: 'TraceDesk prompt' },
-      variance: 'The plain prompt scored differently on the same questions in the two runs (15 vs 17), so a difference of a few questions can be noise.',
+      variance: 'Run on {{date}}. The plain prompt scored differently on the same questions in the two runs (15 vs 17), so a difference of a few questions can be noise.',
     },
   },
   cover: {
@@ -230,7 +228,7 @@ const en = {
       lead: 'One sentence, a checklist to tick, and a quote for every word.',
       primary: 'Start asking',
       secondary: 'See how an answer is built',
-      note: 'Free and open source. It runs on your own computer.',
+      note: 'Free. It runs on your own computer.',
     },
     desk: {
       doc: 'DemoClub support guide',
@@ -253,11 +251,11 @@ const en = {
     figures: {
       title: 'Checked, not trusted.',
       items: [
-        { value: '0', label: 'quotes that failed the word-for-word check, in more than 200 real questions' },
+        { value: '0', label: 'quotes that failed the word-for-word check, in more than 200 demo questions' },
         { value: '20/20', label: 'check questions passing every automatic test, against 17/20 for a plain prompt' },
         { value: '0', label: 'automated accessibility violations at WCAG 2.2 AA, in both languages' },
       ],
-      note: 'Automatic checks on the demo documents, 9 November 2026. They are not an accuracy score.',
+      note: 'Automatic checks on the fictional demo documents, 9 November 2026.',
       noteLabel: 'Note 1',
     },
     moments: {
@@ -296,7 +294,7 @@ const en = {
       questions: ['How do I cancel my place?', 'Who is the instructor?', 'How long until that link expires?'],
     },
     footer: {
-      colophon: 'TraceDesk Lite was built in November 2026 for the Ctrl+V and LaunchPad hackathons.',
+      colophon: 'TraceDesk Lite was built in November 2026 for the Ctrl+V Hackathon.',
       links: { ask: 'Help desk', organiser: 'Organiser dashboard', about: 'About this demo', source: 'Source code', evaluation: 'Evaluation brief' },
     },
   },
@@ -308,7 +306,7 @@ const en = {
       { title: 'How answers are checked', text: 'Every sentence must quote the current documents, and the server checks each quote word for word. An answer it cannot verify is held back. Automatic checks are not an accuracy score: whether a quote fully supports a sentence still needs a person to judge.' },
       { title: 'What it is not', text: 'It is not a medical tool, and it never asks for or keeps health information. It has not yet been tested with readers who have ADHD; its design follows the W3C guidance on cognitive accessibility.' },
       { title: 'Your data', text: 'Questions are logged on the computer that runs TraceDesk. A report reaches the organisers only if you tick the consent box. The organiser dashboard has no login because it runs only on that computer.' },
-      { title: 'Open source', text: 'The code, the evaluation brief and the list of reused components are public.' },
+      { title: 'Source code', text: 'The code, the evaluation brief and the list of reused components are public on GitHub.' },
     ],
     source: 'Source code on GitHub',
   },

@@ -1,5 +1,5 @@
 {
-  "note": "Held-out split (20 questions) of the 40-question comparison, 2026-11-09. Automatic checks only; not an accuracy figure.",
+  "note": "Check split (20 questions) of the 40-question comparison, 2026-11-09. Automatic checks.",
   "run_date": "2026-11-09",
   "prompt_version": "grounded-v2.4-access",
   "held_out_questions": 20,

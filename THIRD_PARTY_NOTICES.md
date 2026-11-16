@@ -1,6 +1,6 @@
 # Third-party components and references
 
-TraceDesk Lite reuses existing open-source work wherever it can. This file lists every component used, as of 2026-11-09 (v0.4).
+TraceDesk Lite reuses existing open-source work wherever it can. This file lists every component used, as of 2026-11-09 (v0.4; the local engine and the email draft of v0.5 added no components).
 
 ## Server dependencies (`app/package.json`, exact versions)
 
@@ -44,17 +44,30 @@ Build tools (not shipped in the bundle): [Vite](https://github.com/vitejs/vite) 
 
 Each package's full license text ships inside `node_modules/<package>/` after `npm install`.
 
-  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software … The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  Hallmark license (MIT License, Copyright (c) 2026 Hallmark contributors):
+
+  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  >
+  > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  >
+  > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Adapted text
 
 - **[i-have-adhd](https://github.com/ayghri/i-have-adhd)**, MIT License, Copyright (c) 2026 Ayoub Ghriss. The style rules in `app/lib/prompts.js` (lead with what matters, no preamble or closers, no idioms, no filler hedges, matter-of-fact tone, at most 5 list items) are adapted from its `skills/i-have-adhd/SKILL.md`.
 
-  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software … The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  i-have-adhd license (MIT License, Copyright (c) 2026 Ayoub Ghriss):
+
+  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  >
+  > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  >
+  > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Testing tools (not distributed with the app)
 
 - **[axe-core](https://github.com/dequelabs/axe-core)** 4.10.2, MPL-2.0. This automated accessibility checker is loaded from jsDelivr only during manual checks.
+- **[promptfoo](https://github.com/promptfoo/promptfoo)** 0.125.1, MIT License, Copyright (c) Promptfoo 2025. Runs the 40-question prompt comparison in `EVALUATION.md`; run with `npx`, not a dependency of the app.
 
 ## Design references (read and cited, no code or text copied)
 

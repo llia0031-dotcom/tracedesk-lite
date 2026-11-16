@@ -37,7 +37,9 @@ function Loading({ error }: { error: boolean }) {
   )
 }
 
-const when = (iso: string, lang: string) => (iso ? new Date(iso).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' }) : '')
+// Chinese dates get a space between digits and 年月日 (chinese-copywriting-guidelines).
+const spaced = (s: string) => s.replace(/(\d)([年月日])/g, '$1 $2').replace(/([年月日])(\d)/g, '$1 $2')
+const when = (iso: string, lang: string) => (iso ? (lang === 'zh' ? spaced : String)(new Date(iso).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' })) : '')
 
 function Stat({ label, value, icon, color }: { label: string; value: ReactNode; icon: ReactNode; color: string }) {
   return (
@@ -46,7 +48,7 @@ function Stat({ label, value, icon, color }: { label: string; value: ReactNode; 
       <Group justify="space-between" align="flex-start" wrap="nowrap" gap="sm">
         <div style={{ minWidth: 0 }}>
           <Text size="sm" c="dimmed" fw={600}>{label}</Text>
-          <Text fw={500} fz={34} lh={1.15} mt={6} className="td-figure">{value}</Text>
+          <Text fw={400} fz={34} lh={1.15} mt={6} className="td-figure">{value}</Text>
         </div>
         <span aria-hidden style={{ color: color === 'coral' ? 'var(--color-paid)' : 'var(--color-muted)', flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
       </Group>
@@ -330,13 +332,12 @@ export function Quality() {
             ))}
           </Table.Tbody>
         </Table>
-        <Text size="sm" c="dimmed" mt="sm">{t('organiser.quality.variance')}</Text>
+        <Text size="sm" c="dimmed" mt="sm">{t('organiser.quality.variance', { date: q.run_date })}</Text>
       </Card>
       <SimpleGrid cols={{ base: 1, sm: 2 }}>
         <Stat label={`${t('organiser.quality.cost')}${t('punct.colon')}${t('organiser.quality.ours')}`} value={cents(q.cost_per_question_usd.ours)} icon={<IconCircleCheck />} color="ink" />
         <Stat label={`${t('organiser.quality.latency')}${t('punct.colon')}${t('organiser.quality.ours')}`} value={`${q.median_latency_s.ours} s`} icon={<IconClock />} color="ink" />
       </SimpleGrid>
-      <Text size="xs" c="dimmed">{t('organiser.quality.note')} ({q.run_date})</Text>
     </Stack>
   )
 }

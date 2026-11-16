@@ -93,7 +93,7 @@ export function findKeyFacts(sentence: string, lang: string, sources: string[]):
       kinds.push('date')
       chips.push({
         kind: 'date',
-        value: lang === 'zh' ? `${s.year ? `${s.year}年` : ''}${s.month}月${s.day}日` : `${s.day} ${MONTHS_EN[s.month! - 1]}${s.year ? ` ${s.year}` : ''}`,
+        value: lang === 'zh' ? `${s.year ? `${s.year} 年 ` : ''}${s.month} 月 ${s.day} 日` : `${s.day} ${MONTHS_EN[s.month! - 1]}${s.year ? ` ${s.year}` : ''}`,
       })
     }
     if (hasTime) {

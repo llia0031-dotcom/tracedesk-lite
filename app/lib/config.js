@@ -14,12 +14,12 @@ function readDotEnv() {
 
 // Settings come ONLY from app/.env, never from process.env. This stops the app from
 // silently picking up credentials that belong to other tools on the same machine
-// (for example a coding assistant's ANTHROPIC_AUTH_TOKEN or ANTHROPIC_BASE_URL).
+// (for example another tool's ANTHROPIC_AUTH_TOKEN or ANTHROPIC_BASE_URL).
 const env = readDotEnv();
 
 export const config = {
   apiKey: (env.ANTHROPIC_API_KEY ?? "").trim(),
-  // Cheapest current (non-deprecated) Claude model, chosen by the user on 2026-11-09.
+  // Cheapest current (non-deprecated) Claude model.
   model: (env.TRACEDESK_MODEL ?? "").trim() || "claude-haiku-5-5",
   effort: (env.TRACEDESK_EFFORT ?? "").trim() || "medium",
   port: Number(env.PORT) || 3000,

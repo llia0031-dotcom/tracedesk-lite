@@ -8,7 +8,7 @@ Demo video (3 min 13 s): https://youtu.be/eEHcymuLP58
 
 TraceDesk Lite is a help-desk assistant for student organisations, designed for readers who find long, dense text hard to act on. That includes people with ADHD or other attention, reading or executive-function difficulties, and people reading English as a second language. It answers only from the organisation's current documents. Every sentence and every checklist step must quote those documents, and the server checks each quote word for word before anything is shown.
 
-> Status: working prototype, v0.4 (November 2026). The demo uses a **fictional** club called “DemoClub”. Its documents are not a real service or policy.
+> Status: working prototype, v0.5 (November 2026). The demo uses a **fictional** club called “DemoClub”. Its documents are not a real service or policy.
 
 ## The problem
 
@@ -26,7 +26,7 @@ The first screen says what the product does and lets you try it in one click. A 
 
 ## The reader's side: the help desk (`/#/ask`)
 
-**One language at a time.** A 中文 / EN switch changes every label, button, hint and example question, and the choice is remembered. The answer comes back in the language of the question. The only English that stays in the Chinese interface is the source quotes, and they are labelled “English, not translated” so readers know why.
+**One language at a time.** A 中文 / EN switch changes every label, button, hint and example question, and the choice is remembered. The answer comes back in the language of the question. The only English that stays in the Chinese interface is the source quotes and the document titles, exactly as the source writes them.
 
 **Questions grouped by topic.** Instead of a wall of examples, suggested questions sit under five tabs: dates and times, registering and cancelling, who can join, help and contact, and “try a tricky one” (vague, unanswerable or manipulative questions that show the assistant will not guess).
 
@@ -99,13 +99,13 @@ web/ (React + Mantine, built to web/dist)  ──POST /api/ask──►  server.
 
 | What | Result |
 | --- | --- |
-| Real model calls | 214, all successful: 20 smoke-test calls, 72 questions typed into the app (including the ones used for screenshots) and 122 evaluation calls. These are demo questions only, so this is not an accuracy evaluation. |
+| Real model calls | 214, all successful: 20 smoke-test calls, 72 questions typed into the app (including the ones used for screenshots) and 122 evaluation calls. These are demo questions. |
 | Quotes and steps that failed verification | 0 across all 214 calls |
 | Expected outcome matched (smoke cases TD-001, 018, 021, 029, 033, 037, 040) | 7 of 7 |
 | Median / max response time | 3.4 s / 10.6 s |
 | Total cost of all 214 calls | about US$0.13 |
 | Automated accessibility check (axe-core 4.10.2, WCAG 2.2 A/AA rules plus best practices) | 0 violations on the cover, the help desk with an answer shown and all five dashboard sections; checked in Chinese and English, light and dark, at desktop and 375 px phone width, with no sideways scrolling |
-| 40-question prompt comparison (promptfoo): plain prompt vs TraceDesk prompt, same model, documents, schema and server checks | On the 20 held-out questions, all automatic checks passed for **20/20** with the TraceDesk prompt (v2.4) vs **17/20** with the plain prompt. The earlier run (v2.3) scored 19/20 vs 15/20. The plain prompt scored 15 and then 17 on the same questions, so a gap of a few questions can be run-to-run noise. Every remaining difference is checklist deadlines the quoted text did not state. The TraceDesk prompt costs about 40% more per question and is about 1.6 s slower (median). Automatic checks only, so this is not an accuracy figure. Details: `EVALUATION.md`. |
+| 40-question prompt comparison (promptfoo): plain prompt vs TraceDesk prompt, same model, documents, schema and server checks | On the 20 check questions, all automatic checks passed for **20/20** with the TraceDesk prompt (v2.4) vs **17/20** with the plain prompt. The earlier run (v2.3) scored 19/20 vs 15/20. The plain prompt scored 15 and then 17 on the same questions, so a gap of a few questions can be run-to-run noise. Every remaining difference is checklist deadlines the quoted text did not state. The TraceDesk prompt costs 36–44% more per question and is about 1.6 s slower (median). Details: `EVALUATION.md`. |
 
 ## Run it locally (Windows, macOS or Linux)
 
@@ -123,7 +123,7 @@ The built interface (`app/web/dist`) is included, so no build step is needed to 
 
 | Command (in `app/`) | What it does |
 | --- | --- |
-| `npm test` | Runs 27 offline tests: knowledge loading, quote and deadline checks, withholding, the review queue with its CSV export, and knowledge-gap insights. No API calls. |
+| `npm test` | Runs 37 offline tests: knowledge loading, quote and deadline checks, withholding, the review queue with its CSV export, knowledge-gap insights, the local engine and the email draft. No API calls. |
 | `npm run smoke` | Makes real model calls on the 7 demo questions in `app/scripts/smoke-cases.json`. |
 | `npm run smoke -- TD-018 TD-029` | Runs only the cases you name. |
 
@@ -148,14 +148,14 @@ npm run build    # type-check and rebuild app/web/dist
 - Interface: React, Mantine (components, charts, notifications), Recharts, Tabler Icons, i18next, Vite.
 - Read-aloud uses easy-speech; bold word starts uses text-vide; key facts are found with chrono-node and marked with Rough Notation.
 - The answer-style rules are adapted from i-have-adhd.
-- Design: the visual system is the "Coral" theme of the Hallmark design skill (MIT), chosen from three it offered; motion follows Emil Kowalski's design-engineering skills (MIT); Impeccable's quality rules (Apache-2.0) were used as a final checklist. Fonts: General Sans (Fontshare), Geist Mono and Noto Sans SC (both OFL).
+- Design: the visual system is the "Coral" theme of the Hallmark design skill (MIT); motion follows Emil Kowalski's design-engineering skills (MIT); Impeccable's quality rules (Apache-2.0) were used as a final checklist. Fonts: General Sans (Fontshare), Geist Mono and Noto Sans SC (both OFL).
 
 ## Known limitations
 
-- **No user testing yet.** Nobody with ADHD has tried the app. It is *designed with* cognitive-accessibility guidance; we do not claim it is proven to help.
+- **No user testing yet.** Nobody with ADHD has tried the app; the design follows the W3C guidance on cognitive accessibility.
 - **The quote check has limits.** It proves the quoted text exists in the source. It does not prove the quote fully supports the sentence, which still needs human review. The deadline check compares numbers only.
 - **The local engine only selects sentences.** It cannot combine two sections into one answer, a Chinese question gets an English sentence under a Chinese lead-in, and a phrasing its glossary does not know comes back as "not covered". On the 34 demo questions it picked the right sentence for 29, asked back on 2 and said "not covered" on 3; a keyword can still land on the wrong sentence.
-- **Small fictional demo.** The demo has four short fictional documents. Results on it say nothing about accuracy on real material.
+- **Small fictional demo.** The demo has four short fictional documents, and every figure here comes from them.
 - **Automated accessibility checks are not enough.** An automated checker catches only part of the problems. Screen-reader and keyboard-only testing by real users has not been done.
 - **Read-aloud depends on the browser.** The voices available depend on the browser and operating system.
 - **Fonts load from Fontshare and Google Fonts.** Offline, the page falls back to the system sans-serif.

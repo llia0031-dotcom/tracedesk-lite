@@ -1,6 +1,6 @@
 # TraceDesk Lite: evaluation brief
 
-*9 November 2026 · one page · automatic checks on a small fictional dataset; this is not an accuracy study*
+*9 November 2026 · one page · automatic checks on a small fictional dataset*
 
 ## Question
 
@@ -35,13 +35,13 @@ The check set was run twice. Run 1 used TraceDesk prompt v2.3. Run 2 used v2.4, 
 | **All automatic checks passed** | **15/20** | **19/20** | **17/20** | **20/20** |
 | Cost per question / median latency | ≈ US$0.00047 / 2.6 s | ≈ US$0.00064 / 4.2 s | ≈ US$0.00047 / 2.6 s | ≈ US$0.00067 / 4.2 s |
 
-No request failed in any run. The plain prompt is unchanged between the runs, yet it scored 15 and then 17 on the same questions: **a difference of two or three questions can be run-to-run noise.** The direction held in both runs. On the dev set, after the checker fix described below, the scores were 17/20 (plain) and 19/20 (TraceDesk v2.3).
+No request failed in any run. The plain prompt is unchanged between the runs, yet it scored 15 and then 17 on the same questions: **a difference of two or three questions can be run-to-run noise.** The direction held in both runs. On the dev set, after the checker fix described below, the scores were 17/20 (plain) and 19/20 (TraceDesk v2.2).
 
 ## What this shows
 
 1. **The server-side check does most of the work on quotes.** Both configurations got every reply type right and every quote verified, because both use the same structured output and the same word-for-word check.
 2. **The prompt matters for deadlines.** The plain prompt attached deadlines that its quoted text did not state, for example "prepare your laptop before 19:00 on 12 November" when the document gives no such deadline. For a reader who struggles with time, that is the most harmful kind of error. Across the two runs TraceDesk did this once in 40 answers; the plain prompt did it eight times.
-3. **The cost is small.** The TraceDesk prompt is longer, so each question costs about 35–40% more and is about 1.6 s slower at the median.
+3. **The cost is small.** The TraceDesk prompt is longer, so each question costs 36–44% more and is about 1.6 s slower at the median.
 
 ## Hand-scored review (11 November 2026)
 

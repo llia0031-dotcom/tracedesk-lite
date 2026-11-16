@@ -303,7 +303,6 @@ export default function AnswerCard({
                 </Group>
               </Accordion.Control>
               <Accordion.Panel>
-                <Text size="xs" c="dimmed" mb="sm">{t('answer.evidenceNote')}</Text>
                 <Stack gap="sm">
                   {evidence.map((g) => <Evidence key={g.source_id} g={g} />)}
                 </Stack>
