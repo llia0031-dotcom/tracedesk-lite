@@ -140,7 +140,7 @@
 .hm-row h3 { grid-column: 1 / 6; }
 .hm-row p { grid-column: 6 / 13; color: var(--color-ink-2); max-width: 52ch; font-size: var(--text-lg); line-height: 1.5; }
 
-/* Close: the board, with real questions laid on it as cards */
+/* Close: the board, with sample questions laid on it as cards */
 .hm-close { padding-block: var(--section-gap-s); }
 .hm-close h2 { color: var(--color-board-type); }
 .hm-close .lead { color: color-mix(in oklab, var(--color-board-type) 82%, var(--color-board)); }

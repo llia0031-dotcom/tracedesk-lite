@@ -38,7 +38,7 @@ TraceDesk Lite reuses existing open-source work wherever it can. This file lists
 
 - **[Hallmark](https://github.com/Nutlope/hallmark)** (MIT License, Copyright (c) 2026 Hallmark contributors; made by Together AI). The visual system is its "Coral" theme: the colour tokens, the letterpress control recipe and the generated paper-texture recipe in `app/web/src/styles/` are adapted from it. Its `sloplint` checker was run on the cover, the help desk and the dashboard.
 - **[Emil Kowalski's skills](https://github.com/emilkowalski/skills)** (MIT License, Copyright (c) 2026 Emil Kowalski). Motion rules: easing, durations, press feedback, reduced motion.
-- **[Impeccable](https://github.com/pbakaus/impeccable)** (Apache-2.0, Paul Bakaus). Its quality checklist was applied by hand.
+- **[Impeccable](https://github.com/pbakaus/impeccable)** (Apache-2.0, Paul Bakaus). Its quality checklist was followed during the design review; its tool was not run.
 
 Build tools (not shipped in the bundle): [Vite](https://github.com/vitejs/vite) 8.3.6 (MIT) with @vitejs/plugin-react (MIT), [TypeScript](https://github.com/microsoft/TypeScript) 7.0.2 (Apache-2.0), postcss-preset-mantine 1.18.0 and postcss-simple-vars 7.0.1 (MIT). The interface started from Vite's official `react-ts` template.
 
@@ -66,7 +66,7 @@ Each package's full license text ships inside `node_modules/<package>/` after `n
 
 ## Testing tools (not distributed with the app)
 
-- **[axe-core](https://github.com/dequelabs/axe-core)** 4.10.2, MPL-2.0. This automated accessibility checker is loaded from jsDelivr only during manual checks.
+- **[axe-core](https://github.com/dequelabs/axe-core)** 4.10.2, MPL-2.0. This automated accessibility checker is loaded from jsDelivr only while the accessibility checks run.
 - **[promptfoo](https://github.com/promptfoo/promptfoo)** 0.125.1, MIT License, Copyright (c) Promptfoo 2025. Runs the 40-question prompt comparison in `EVALUATION.md`; run with `npx`, not a dependency of the app.
 
 ## Design references (read and cited, no code or text copied)
