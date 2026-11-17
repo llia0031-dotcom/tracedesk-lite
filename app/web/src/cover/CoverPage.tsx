@@ -17,7 +17,7 @@ const BEFORE_SECTIONS = [
 ]
 const BEFORE_WORDS = BEFORE_SECTIONS.reduce((n, s) => n + s.text.split(/\s+/).length, 0)
 const SHOTS = ['answer', 'focus', 'settings', 'clarify'] as const
-const REPO = 'https://github.com/Jason-d-e/tracedesk-lite'
+const REPO = 'https://github.com/llia0031-dotcom/tracedesk-lite'
 
 function shot(lang: string, name: string) {
   return `/shots/${lang === 'zh' ? 'zh' : 'en'}/${name}.webp`
