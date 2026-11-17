@@ -4,7 +4,7 @@ import Logo from '../components/Logo'
 import { LanguageSwitch } from '../components/TopBar'
 import './cover.css'
 
-const REPO = 'https://github.com/Jason-d-e/tracedesk-lite'
+const REPO = 'https://github.com/llia0031-dotcom/tracedesk-lite'
 
 /** Where the fine print lives (as in mature products): one page, linked from the footers, not banners on every screen. */
 export default function AboutPage() {
