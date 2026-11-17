@@ -160,3 +160,7 @@ npm run build    # type-check and rebuild app/web/dist
 - **Read-aloud depends on the browser.** The voices available depend on the browser and operating system.
 - **Fonts load from Fontshare and Google Fonts.** Offline, the page falls back to the system sans-serif.
 - **Single-user local prototype.** There are no accounts, the rate limit is in memory, and there is no public deployment. The dashboard has no login, which is acceptable only because the server listens on this computer alone (127.0.0.1).
+
+## License
+
+The code is released under the [MIT License](LICENSE), Copyright (c) 2026 Liang Liyuan and contributors. Third-party components keep their own licenses, listed in `THIRD_PARTY_NOTICES.md`.

@@ -2,6 +2,7 @@
   "name": "tracedesk-lite",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "description": "Evidence-first FAQ assistant: answers only from a small document set, with every quote checked against the source.",
   "type": "module",
   "engines": {
